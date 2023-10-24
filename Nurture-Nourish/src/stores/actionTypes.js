@@ -1,0 +1,5 @@
+export const isAuthenticatedTypes = "isAuthenticatedTypes"
+export const getDailyTypes = "getDailyTypes"
+export const getFoodTypes = "getFoodTypes"
+export const getRecipesTypes = "getRecipesTypes"
+export const getSavedRecipesTypes = "getSavedRecipesTypes"

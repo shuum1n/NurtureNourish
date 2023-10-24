@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "duckduckgo-images-api": "^1.0.5",
+    "node-duckduckgo": "^2.0.18"
+  }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- minified snippet to load TalkJS without delaying your page -->
+<script>
+  (function(t,a,l,k,j,s){
+  s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
+  ;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
+  .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
+  </script>
+  
+  <!-- container element in which TalkJS will display a chat UI -->
+  <div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px">
+    <i>Loading chat...</i>
+  </div>
+
+  <script>
+    Talk.ready.then(function () {
+  var me = new Talk.User({
+    id: 'verdianOP',
+    name: 'dr. Verdian OP',
+    email: 'verdian@doctor.com',
+    photoUrl: 'https://talkjs.com/images/avatar-1.jpg',
+    welcomeMessage: 'Hey there! How are you? :-)',
+  });
+
+  window.talkSession = new Talk.Session({
+    appId: 't0qA0gWk',
+    me: me,
+  });
+
+  var other = new Talk.User({
+    id: "123456789",
+    name: "Alice",
+    email: "Alice@example.com",
+    photoUrl: "https://talkjs.com/images/avatar-5.jpg",
+    welcomeMessage: "Hey, how can I help? https://google.com",
+    role: "default",
+  });
+
+  var conversation = talkSession.getOrCreateConversation(
+    Talk.oneOnOneId(me, other)
+  );
+  conversation.setParticipant(me);
+  conversation.setParticipant(other);
+
+  var inbox = talkSession.createInbox({ selected: conversation });
+  inbox.mount(document.getElementById('talkjs-container'));
+});
+  </script>
+</body>
+</html>
